@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Apr 27 19:38:07 2021
+# Process ID: 18777
+# Current directory: /home/jo/Documents/Projets/Hepia/lpsc/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/clk_vga_hdmi_800x600_synth_1
+# Command line: vivado -log clk_vga_hdmi_800x600.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_vga_hdmi_800x600.tcl
+# Log file: /home/jo/Documents/Projets/Hepia/lpsc/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/clk_vga_hdmi_800x600_synth_1/clk_vga_hdmi_800x600.vds
+# Journal file: /home/jo/Documents/Projets/Hepia/lpsc/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/clk_vga_hdmi_800x600_synth_1/vivado.jou
+#-----------------------------------------------------------
+source clk_vga_hdmi_800x600.tcl -notrace

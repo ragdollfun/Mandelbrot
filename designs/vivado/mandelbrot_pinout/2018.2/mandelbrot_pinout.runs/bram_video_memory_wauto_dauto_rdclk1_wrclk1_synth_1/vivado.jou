@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue May 11 19:05:23 2021
+# Process ID: 15580
+# Current directory: C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1
+# Command line: vivado.exe -log bram_video_memory_wauto_dauto_rdclk1_wrclk1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source bram_video_memory_wauto_dauto_rdclk1_wrclk1.tcl
+# Log file: C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.vds
+# Journal file: C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1\vivado.jou
+#-----------------------------------------------------------
+source bram_video_memory_wauto_dauto_rdclk1_wrclk1.tcl -notrace

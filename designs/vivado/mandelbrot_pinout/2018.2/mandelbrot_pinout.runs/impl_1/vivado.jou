@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue May 11 19:27:58 2021
+# Process ID: 4572
+# Current directory: C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/impl_1
+# Command line: vivado.exe -log mandelbrot_pinout.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source mandelbrot_pinout.tcl -notrace
+# Log file: C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/impl_1/mandelbrot_pinout.vdi
+# Journal file: C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source mandelbrot_pinout.tcl -notrace
