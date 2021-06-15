@@ -1,0 +1,16 @@
+Vivado Simulator 2020.2
+Warning: File c_real.dat could not be opened
+on HDL file C:/Users/Petr/Xilinx/Mandelbrot 2/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sim_1/imports/hw/mandelbrot_calculator_tb.vhd line 352
+Warning: File c_imaginary.dat could not be opened
+on HDL file C:/Users/Petr/Xilinx/Mandelbrot 2/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sim_1/imports/hw/mandelbrot_calculator_tb.vhd line 394
+Warning: File ready_expected.dat could not be opened
+on HDL file C:/Users/Petr/Xilinx/Mandelbrot 2/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sim_1/imports/hw/mandelbrot_calculator_tb.vhd line 436
+Warning: File finished_expected.dat could not be opened
+on HDL file C:/Users/Petr/Xilinx/Mandelbrot 2/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sim_1/imports/hw/mandelbrot_calculator_tb.vhd line 469
+Warning: File z_real_expected.dat could not be opened
+on HDL file C:/Users/Petr/Xilinx/Mandelbrot 2/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sim_1/imports/hw/mandelbrot_calculator_tb.vhd line 504
+Warning: File z_imaginary_expected.dat could not be opened
+on HDL file C:/Users/Petr/Xilinx/Mandelbrot 2/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sim_1/imports/hw/mandelbrot_calculator_tb.vhd line 539
+Warning: File iterations_expected.dat could not be opened
+on HDL file C:/Users/Petr/Xilinx/Mandelbrot 2/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sim_1/imports/hw/mandelbrot_calculator_tb.vhd line 574
+Time resolution is 1 ps

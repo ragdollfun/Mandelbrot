@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/synth_1'
+HD_PWD='C:/Users/Petr/Xilinx/Mandelbrot 2/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

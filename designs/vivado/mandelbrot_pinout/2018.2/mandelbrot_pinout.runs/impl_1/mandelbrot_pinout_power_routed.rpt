@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date             : Tue Jun  1 19:48:58 2021
-| Host             : Petr-ThinkPad-Renoir running 64-bit major release  (build 9200)
+| Date             : Tue Jun 15 16:34:18 2021
+| Host             : PetrBigPC running 64-bit major release  (build 9200)
 | Command          : report_power -file mandelbrot_pinout_power_routed.rpt -pb mandelbrot_pinout_power_summary_routed.pb -rpx mandelbrot_pinout_power_routed.rpx
 | Design           : mandelbrot_pinout
 | Device           : xc7a200tsbg484-1

@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Tue Jun  1 19:47:43 2021
-| Host         : Petr-ThinkPad-Renoir running 64-bit major release  (build 9200)
+| Date         : Tue Jun 15 16:33:00 2021
+| Host         : PetrBigPC running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file mandelbrot_pinout_control_sets_placed.rpt
 | Design       : mandelbrot_pinout
 | Device       : xc7a200t
@@ -74,8 +74,8 @@ Table of Contents
 |                                Clock Signal                                |                   Enable Signal                  |                       Set/Reset Signal                      | Slice Load Count | Bel Load Count | Bels / Slice |
 +----------------------------------------------------------------------------+--------------------------------------------------+-------------------------------------------------------------+------------------+----------------+--------------+
 |  VgaHdmiCDxB.HdmixI/ClkVgaHdmi800x600xG.ClkVgaHdmi800x600xI/inst/ClkVgaxCO |                                                  | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/SR[0]               |                4 |             12 |         3.00 |
-|  FpgaUserCDxB.ClkMandelbrotxI/inst/ClkMandelxCO                            | VCountIntxD                                      | FpgaUserCDxB.ImageGeneratorxI/AR[0]                         |                7 |             16 |         2.29 |
 |  VgaHdmiCDxB.HdmixI/ClkVgaHdmi800x600xG.ClkVgaHdmi800x600xI/inst/ClkVgaxCO | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/VCountxD | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/bbstub_PllLockedxSO |                6 |             16 |         2.67 |
+|  FpgaUserCDxB.ClkMandelbrotxI/inst/ClkMandelxCO                            | VCountIntxD                                      | FpgaUserCDxB.ImageGeneratorxI/AR[0]                         |                7 |             16 |         2.29 |
 |  FpgaUserCDxB.ClkMandelbrotxI/inst/ClkMandelxCO                            |                                                  | FpgaUserCDxB.ImageGeneratorxI/AR[0]                         |                6 |             18 |         3.00 |
 |  VgaHdmiCDxB.HdmixI/ClkVgaHdmi800x600xG.ClkVgaHdmi800x600xI/inst/ClkVgaxCO |                                                  | VgaHdmiCDxB.HdmixI/VgaxI/VgaControlerxI/bbstub_PllLockedxSO |                7 |             19 |         2.71 |
 |  VgaHdmiCDxB.HdmixI/ClkVgaHdmi800x600xG.ClkVgaHdmi800x600xI/inst/ClkVgaxCO |                                                  |                                                             |               16 |             31 |         1.94 |

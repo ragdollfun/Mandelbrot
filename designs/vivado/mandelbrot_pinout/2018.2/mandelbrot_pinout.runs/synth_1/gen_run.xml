@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1622569544">
+<GenRun Id="synth_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1623767465">
   <File Type="PA-TCL" Name="mandelbrot_pinout.tcl"/>
   <File Type="REPORTS-TCL" Name="mandelbrot_pinout_reports.tcl"/>
   <File Type="RDS-RDS" Name="mandelbrot_pinout.vds"/>
@@ -10,6 +10,15 @@
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../../../../ips/hw/hdmi/src/hdl_pkg/hdmi_interface_pkg.vhd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hw/mandelbrot_calculator.vhd">
+      <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../ips/hw/mandelbrot_calculator.vhd"/>
+        <Attr Name="ImportTime" Val="1623721016"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

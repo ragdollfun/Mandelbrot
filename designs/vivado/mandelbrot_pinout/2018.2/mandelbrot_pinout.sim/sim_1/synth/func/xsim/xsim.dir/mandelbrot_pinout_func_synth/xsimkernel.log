@@ -1,0 +1,7 @@
+Running: xsim.dir/mandelbrot_pinout_func_synth/xsimk.exe -simmode gui -wdb mandelbrot_pinout_func_synth.wdb -simrunnum 0 -socket 55926
+Design successfully loaded
+Design Loading Memory Usage: 54784 KB (Peak: 54784 KB)
+Design Loading CPU Usage: 78 ms
+Simulation completed
+Simulation Memory Usage: 60492 KB (Peak: 60492 KB)
+Simulation CPU Usage: 124 ms

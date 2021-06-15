@@ -25,6 +25,7 @@ use ieee.numeric_std.all;
 
 library work;
 use work.hdmi_interface_pkg.all;
+USE work.mandelbrot_calculator;
 
 entity image_generator is
 
@@ -116,6 +117,29 @@ architecture behavioural of image_generator is
     signal WhiteCrossHHCountMaxxD : integer                                             := 0;
     signal WhiteCrossHVCountMinxD : integer                                             := 0;
     signal WhiteCrossHVCountMaxxD : integer                                             := 0;
+    
+    COMPONENT mandelbrot_calculator IS
+        PORT(   clk                               :   IN    std_logic;
+                rst                               :   IN    std_logic;
+                start                             :   IN    std_logic;
+                c_real                            :   IN    std_logic_vector(15 DOWNTO 0);  -- sfix16_En14
+                c_imaginary                       :   IN    std_logic_vector(15 DOWNTO 0);  -- sfix16_En14
+                ready                             :   OUT   std_logic;
+                finished                          :   OUT   std_logic;
+                z_real                            :   OUT   std_logic_vector(15 DOWNTO 0);  -- sfix16_En12
+                z_imaginary                       :   OUT   std_logic_vector(15 DOWNTO 0);  -- sfix16_En12
+                iterations                        :   OUT   std_logic_vector(6 DOWNTO 0)  -- ufix7
+        );
+    END COMPONENT mandelbrot_calculator;
+    
+    SIGNAL STATE_START : std_logic := '1';
+    SIGNAL MC_INPUT_C_REAL : std_logic_vector(15 DOWNTO 0) := (others => '0');
+    SIGNAL MC_INPUT_C_IMAG : std_logic_vector(15 DOWNTO 0) := (others => '0');
+    SIGNAL STATE_READY : std_logic := '0';
+    SIGNAL STATE_FINIS : std_logic := '0';
+    SIGNAL MC_OUTPUT_Z_REAL : std_logic_vector(15 DOWNTO 0) := (others => '0');
+    SIGNAL MC_OUTPUT_Z_IMAG : std_logic_vector(15 DOWNTO 0) := (others => '0');
+    SIGNAL MC_OUTPUT_ITER : std_logic_vector(6 DOWNTO 0) := (others => '0');
 
 begin  -- architecture behavioural
 
@@ -203,6 +227,20 @@ begin  -- architecture behavioural
         WCHVCMaxxAS : WhiteCrossHVCountMaxxD <= C_WHITE_CROSS_H_V_COUNT_MAX_1024x768;
 
     end generate VgaConfig1024x768xG;
+    
+    MandelbrotCalculatorxI : ENTITY work.mandelbrot_calculator
+        PORT MAP (
+            clk             => ClkVgaxCI,
+            rst             => RstxRAI,
+            start           => STATE_START,
+            c_real          => MC_INPUT_C_REAL,
+            c_imaginary     => MC_INPUT_C_IMAG,
+            ready           => STATE_READY,
+            finished        => STATE_FINIS,
+            z_real          => MC_OUTPUT_Z_REAL,
+            z_imaginary     => MC_OUTPUT_Z_IMAG,
+            iterations      => MC_OUTPUT_ITER
+        );
 
     -- Synchronous statements
 
