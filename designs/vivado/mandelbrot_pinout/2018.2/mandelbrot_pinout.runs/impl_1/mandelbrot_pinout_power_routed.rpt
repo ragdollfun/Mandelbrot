@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date             : Tue May 11 19:09:48 2021
-| Host             : PetrBigPC running 64-bit major release  (build 9200)
+| Date             : Tue Jun  1 19:48:58 2021
+| Host             : Petr-ThinkPad-Renoir running 64-bit major release  (build 9200)
 | Command          : report_power -file mandelbrot_pinout_power_routed.rpt -pb mandelbrot_pinout_power_summary_routed.pb -rpx mandelbrot_pinout_power_routed.rpx
 | Design           : mandelbrot_pinout
 | Device           : xc7a200tsbg484-1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.388        |
+| Total On-Chip Power (W)  | 0.514        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.249        |
-| Device Static (W)        | 0.140        |
+| Dynamic (W)              | 0.367        |
+| Device Static (W)        | 0.147        |
 | Effective TJA (C/W)      | 3.3          |
-| Max Ambient (C)          | 83.7         |
-| Junction Temperature (C) | 26.3         |
+| Max Ambient (C)          | 83.3         |
+| Junction Temperature (C) | 26.7         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,17 +52,19 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.004 |        7 |       --- |             --- |
-| Slice Logic    |    <0.001 |      406 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      181 |    133800 |            0.14 |
-|   CARRY4       |    <0.001 |       34 |     33450 |            0.10 |
-|   Register     |    <0.001 |       65 |    267600 |            0.02 |
-|   Others       |     0.000 |       26 |       --- |             --- |
-| Signals        |    <0.001 |      192 |       --- |             --- |
-| MMCM           |     0.106 |        1 |        10 |           10.00 |
-| I/O            |     0.138 |       19 |       285 |            6.67 |
-| Static Power   |     0.140 |          |           |                 |
-| Total          |     0.388 |          |           |                 |
+| Clocks         |     0.013 |       10 |       --- |             --- |
+| Slice Logic    |    <0.001 |     1903 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      808 |    133800 |            0.60 |
+|   CARRY4       |    <0.001 |       42 |     33450 |            0.13 |
+|   Register     |    <0.001 |      112 |    267600 |            0.04 |
+|   Others       |     0.000 |      480 |       --- |             --- |
+|   F7/F8 Muxes  |     0.000 |      243 |    133800 |            0.18 |
+| Signals        |     0.004 |     2117 |       --- |             --- |
+| Block RAM      |     0.001 |      150 |       365 |           41.10 |
+| MMCM           |     0.212 |        2 |        10 |           20.00 |
+| I/O            |     0.135 |       19 |       285 |            6.67 |
+| Static Power   |     0.147 |          |           |                 |
+| Total          |     0.514 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,16 +74,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.037 |       0.006 |      0.031 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.090 |       0.059 |      0.031 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.046 |       0.041 |      0.005 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.057 |       0.021 |      0.035 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.148 |       0.118 |      0.031 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.045 |       0.040 |      0.005 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.005 |       0.000 |      0.004 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -129,8 +131,11 @@ Table of Contents
 | Clock                           | Domain                                                                                          | Constraint (ns) |
 +---------------------------------+-------------------------------------------------------------------------------------------------+-----------------+
 | ClkHdmixCO_clk_vga_hdmi_800x600 | VgaHdmiCDxB.HdmixI/ClkVgaHdmi800x600xG.ClkVgaHdmi800x600xI/inst/ClkHdmixCO_clk_vga_hdmi_800x600 |             5.0 |
+| ClkMandelxCO_clk_mandelbrot     | FpgaUserCDxB.ClkMandelbrotxI/inst/ClkMandelxCO_clk_mandelbrot                                   |            10.0 |
 | ClkVgaxCO_clk_vga_hdmi_800x600  | VgaHdmiCDxB.HdmixI/ClkVgaHdmi800x600xG.ClkVgaHdmi800x600xI/inst/ClkVgaxCO_clk_vga_hdmi_800x600  |            25.0 |
+| clkfbout_clk_mandelbrot         | FpgaUserCDxB.ClkMandelbrotxI/inst/clkfbout_clk_mandelbrot                                       |            10.0 |
 | clkfbout_clk_vga_hdmi_800x600   | VgaHdmiCDxB.HdmixI/ClkVgaHdmi800x600xG.ClkVgaHdmi800x600xI/inst/clkfbout_clk_vga_hdmi_800x600   |            10.0 |
+| sys_clk_pin                     | ClkSys100MhzBufgxC                                                                              |            10.0 |
 | sys_clk_pin                     | ClkSys100MhzxCI                                                                                 |            10.0 |
 | sys_clk_pin                     | VgaHdmiCDxB.HdmixI/ClkSys100MhzBufgxC                                                           |            10.0 |
 +---------------------------------+-------------------------------------------------------------------------------------------------+-----------------+
@@ -145,11 +150,18 @@ Table of Contents
 +---------------------------------------------+-----------+
 | Name                                        | Power (W) |
 +---------------------------------------------+-----------+
-| mandelbrot_pinout                           |     0.249 |
-|   VgaHdmiCDxB.HdmixI                        |     0.248 |
+| mandelbrot_pinout                           |     0.367 |
+|   FpgaUserCDxB.ClkMandelbrotxI              |     0.107 |
+|     inst                                    |     0.107 |
+|   VgaHdmiCDxB.HdmixI                        |     0.246 |
 |     ClkVgaHdmi800x600xG.ClkVgaHdmi800x600xI |     0.108 |
 |       inst                                  |     0.108 |
-|     VgaToHdmixI                             |     0.139 |
+|     VgaToHdmixI                             |     0.137 |
+|     VgaxI                                   |     0.001 |
+|       VgaControlerxI                        |     0.001 |
+|   VgaHdmiToFpgaUserCDCxB.BramVideoMemoryxI  |     0.008 |
+|     U0                                      |     0.008 |
+|       inst_blk_mem_gen                      |     0.008 |
 +---------------------------------------------+-----------+
 
 

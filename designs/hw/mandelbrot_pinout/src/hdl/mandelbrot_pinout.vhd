@@ -231,9 +231,9 @@ architecture rtl of mandelbrot_pinout is
     -- Reset
     signal ResetxR              : std_logic                                         := '0';
     -- Pll Locked
-    -- signal PllLockedxS          : std_logic                                         := '0';
+     signal PllLockedxS          : std_logic                                         := '0';
      signal PllLockedxD          : std_logic_vector(0 downto 0)                      := (others => '0');
-    -- signal PllNotLockedxS       : std_logic                                         := '0';
+     signal PllNotLockedxS       : std_logic                                         := '0';
     signal HdmiPllLockedxS      : std_logic                                         := '0';
     signal HdmiPllNotLockedxS   : std_logic                                         := '0';
     signal UBlazePllLockedxS    : std_logic                                         := '0';
@@ -252,8 +252,8 @@ architecture rtl of mandelbrot_pinout is
      signal BramVideoMemoryWriteDataxD : std_logic_vector((C_BRAM_VIDEO_MEMORY_DATA_SIZE - 1) downto 0);
      signal BramVideoMemoryReadDataxD  : std_logic_vector((C_BRAM_VIDEO_MEMORY_DATA_SIZE - 1) downto 0);
     -- signal BtnCInterruptxS      : std_logic                                         := '0';
-    signal BtnCxD               : std_logic_vector(3 downto 0)                      := (others => '0');
-    signal BtnCRisexS           : std_logic                                         := '0';
+    -- signal BtnCxD               : std_logic_vector(3 downto 0)                      := (others => '0');
+    -- signal BtnCRisexS           : std_logic                                         := '0';
     -- signal BtnCFallxS           : std_logic                                         := '0';
     -- AXI4 Lite To Register Bank Signals
     signal WrDataxD             : std_logic_vector((C_AXI4_DATA_SIZE - 1) downto 0) := (others => '0');
@@ -389,8 +389,8 @@ begin  -- architecture rtl
                 ClkVgaxCO       => ClkVgaxC,
                 HCountxDO       => HCountxD,
                 VCountxDO       => VCountxD,
-                VidOnxSO        => VidOnxS,           --open,
-                DataxDI         => DataImGen2HDMIxD,  --DataBramMV2HdmixD,
+                VidOnxSO        => open,           --VidOnxS,
+                DataxDI         => DataBramMV2HdmixD,  --DataImGen2HDMIxD,
                 HdmiTxRsclxSO   => HdmiSourcexD.HdmiSourceOutxD.HdmiTxRsclxS,
                 HdmiTxRsdaxSIO  => HdmiSourcexD.HdmiSourceInOutxS.HdmiTxRsdaxS,
                 HdmiTxHpdxSI    => HdmiSourcexD.HdmiSourceInxS.HdmiTxHpdxS,
@@ -430,14 +430,14 @@ begin  -- architecture rtl
 
     FpgaUserCDxB : block is
 
-        -- signal ClkSys100MhzBufgxC : std_logic                                    := '0';
+         signal ClkSys100MhzBufgxC : std_logic                                    := '0';
          signal HCountIntxD        : std_logic_vector((C_DATA_SIZE - 1) downto 0) := std_logic_vector(C_VGA_CONFIG.HActivexD - 1);
          signal VCountIntxD        : std_logic_vector((C_DATA_SIZE - 1) downto 0) := (others => '0');
 
     begin  -- block FpgaUserCDxB
 
-        -- PllNotLockedxAS : PllNotLockedxS <= not PllLockedxS;
-        -- PllLockedxAS    : PllLockedxD(0) <= PllLockedxS;
+         PllNotLockedxAS : PllNotLockedxS <= not PllLockedxS;
+         PllLockedxAS    : PllLockedxD(0) <= PllLockedxS;
 
          BramVideoMemoryWriteDataxAS : BramVideoMemoryWriteDataxD <= DataImGen2BramMVxD(23 downto 21) &
                                                                      DataImGen2BramMVxD(15 downto 13) &
@@ -446,17 +446,17 @@ begin  -- architecture rtl
          BramVMWrAddrxAS : BramVideoMemoryWriteAddrxD <= VCountIntxD((C_BRAM_VIDEO_MEMORY_HIGH_ADDR_SIZE - 1) downto 0) &
                                                          HCountIntxD((C_BRAM_VIDEO_MEMORY_LOW_ADDR_SIZE - 1) downto 0);
 
-        -- BUFGClkSysToClkMandelxI : BUFG
-        --     port map (
-        --         O => ClkSys100MhzBufgxC,
-        --         I => ClkSys100MhzxCI);
+         BUFGClkSysToClkMandelxI : BUFG
+             port map (
+                 O => ClkSys100MhzBufgxC,
+                 I => ClkSys100MhzxCI);
 
-        -- ClkMandelbrotxI : clk_mandelbrot
-        --     port map (
-        --         ClkMandelxCO    => ClkMandelxC,
-        --         reset           => ResetxR,
-        --         PllLockedxSO    => PllLockedxS,
-        --         ClkSys100MhzxCI => ClkSys100MhzBufgxC);
+         ClkMandelbrotxI : clk_mandelbrot
+             port map (
+                 ClkMandelxCO    => ClkMandelxC,
+                 reset           => ResetxR,
+                 PllLockedxSO    => PllLockedxS,
+                 ClkSys100MhzxCI => ClkSys100MhzBufgxC);
 
         ImageGeneratorxI : entity work.image_generator
             generic map (
@@ -464,39 +464,39 @@ begin  -- architecture rtl
                 C_PIXEL_SIZE => C_PIXEL_SIZE,
                 C_VGA_CONFIG => C_VGA_CONFIG)
             port map (
-                ClkVgaxCI    => ClkVgaxC,            --ClkMandelxC,
-                RstxRAI      => HdmiPllNotLockedxS,  --PllNotLockedxS,
-                PllLockedxSI => HdmiPllLockedxS,     --PllLockedxD(0),
-                HCountxDI    => HCountxD,            --HCountIntxD,
-                VCountxDI    => VCountxD,            --VCountIntxD,
-                VidOnxSI     => VidOnxS,             --'1',
-                DataxDO      => DataImGen2HDMIxD,    --DataImGen2BramMVxD,
+                ClkVgaxCI    => ClkMandelxC,            --ClkVgaxC,
+                RstxRAI      => PllNotLockedxS,  --HdmiPllNotLockedxS,
+                PllLockedxSI => PllLockedxD(0),     --HdmiPllLockedxS,
+                HCountxDI    => HCountIntxD,            --HCountxD,
+                VCountxDI    => VCountIntxD,            --VCountxD,
+                VidOnxSI     => '1',             --VidOnxS,
+                DataxDO      => DataImGen2BramMVxD,    --DataImGen2HDMIxD,
                 Color1xDI    => RdDataFlagColor1xDP(((C_PIXEL_SIZE * 3) - 1) downto 0));
 
-        -- HVCountIntxP : process (all) is
-        -- begin  -- process HVCountxP
+         HVCountIntxP : process (all) is
+         begin  -- process HVCountxP
 
-        --     if PllNotLockedxS = '1' then
-        --         HCountIntxD <= (others => '0');
-        --         VCountIntxD <= (others => '0');
-        --     elsif rising_edge(ClkMandelxC) then
-        --         HCountIntxD <= HCountIntxD;
-        --         VCountIntxD <= VCountIntxD;
+             if PllNotLockedxS = '1' then
+                 HCountIntxD <= (others => '0');
+                 VCountIntxD <= (others => '0');
+             elsif rising_edge(ClkMandelxC) then
+                 HCountIntxD <= HCountIntxD;
+                 VCountIntxD <= VCountIntxD;
 
-        --         if unsigned(HCountIntxD) = (C_VGA_CONFIG.HActivexD - 1) then
-        --             HCountIntxD <= (others => '0');
+                 if unsigned(HCountIntxD) = (C_VGA_CONFIG.HActivexD - 1) then
+                     HCountIntxD <= (others => '0');
 
-        --             if unsigned(VCountIntxD) = (C_VGA_CONFIG.VActivexD - 1) then
-        --                 VCountIntxD <= (others => '0');
-        --             else
-        --                 VCountIntxD <= std_logic_vector(unsigned(VCountIntxD) + 1);
-        --             end if;
-        --         else
-        --             HCountIntxD <= std_logic_vector(unsigned(HCountIntxD) + 1);
-        --         end if;
-        --     end if;
+                     if unsigned(VCountIntxD) = (C_VGA_CONFIG.VActivexD - 1) then
+                         VCountIntxD <= (others => '0');
+                     else
+                         VCountIntxD <= std_logic_vector(unsigned(VCountIntxD) + 1);
+                     end if;
+                 else
+                     HCountIntxD <= std_logic_vector(unsigned(HCountIntxD) + 1);
+                 end if;
+             end if;
 
-        -- end process HVCountIntxP;
+         end process HVCountIntxP;
 
     end block FpgaUserCDxB;
 

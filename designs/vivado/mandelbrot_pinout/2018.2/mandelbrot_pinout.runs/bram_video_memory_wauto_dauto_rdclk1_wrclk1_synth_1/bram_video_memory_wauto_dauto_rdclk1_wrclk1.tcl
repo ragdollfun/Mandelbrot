@@ -70,8 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
-set_param xicom.use_bs_reader 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -164,25 +162,32 @@ create_report "bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1_synth_report_
 OPTRACE "synth reports" END { }
 
 if { [catch {
-  write_verilog -force -mode synth_stub C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.v
+  file copy -force C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.dcp c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.dcp
+} _RESULT ] } { 
+  send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
+  error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
+}
+
+if { [catch {
+  write_verilog -force -mode synth_stub c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.vhdl
+  write_vhdl -force -mode synth_stub c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.v
+  write_verilog -force -mode funcsim c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -191,39 +196,48 @@ if { [catch {
 } else {
 
 
+if { [catch {
+  file copy -force C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.dcp c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.dcp
+} _RESULT ] } { 
+  send_msg_id runtcl-3 status "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
+  error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
+}
+
+if { [catch {
+  file rename -force C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.v c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.v
+} _RESULT ] } { 
+  puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
+}
+
+if { [catch {
+  file rename -force C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.vhdl c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.vhdl
+} _RESULT ] } { 
+  puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
+}
+
+if { [catch {
+  file rename -force C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.v c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.v
+} _RESULT ] } { 
+  puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
+}
+
+if { [catch {
+  file rename -force C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.vhdl c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.vhdl
+} _RESULT ] } { 
+  puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
+}
+
 }; # end if cached_ip 
 
-add_files C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.v -of_objects [get_files C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.xci]
-
-add_files C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.vhdl -of_objects [get_files C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.xci]
-
-add_files C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.v -of_objects [get_files C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.xci]
-
-add_files C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.vhdl -of_objects [get_files C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.xci]
-
-add_files C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.dcp -of_objects [get_files C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1.xci]
-
 if {[file isdir C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.ip_user_files/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1]} {
   catch { 
-    file copy -force C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.v C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.ip_user_files/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1
+    file copy -force c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.v C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.ip_user_files/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1
   }
 }
 
 if {[file isdir C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.ip_user_files/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1]} {
   catch { 
-    file copy -force C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_sim_netlist.vhdl C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.ip_user_files/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1
-  }
-}
-
-if {[file isdir C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.ip_user_files/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1]} {
-  catch { 
-    file copy -force C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.v C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.ip_user_files/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1
-  }
-}
-
-if {[file isdir C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.ip_user_files/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1]} {
-  catch { 
-    file copy -force C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.runs/bram_video_memory_wauto_dauto_rdclk1_wrclk1_synth_1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.vhdl C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.ip_user_files/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1
+    file copy -force c:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.srcs/sources_1/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1/bram_video_memory_wauto_dauto_rdclk1_wrclk1_stub.vhdl C:/Users/Petr/Xilinx/Mandelbrot/designs/vivado/mandelbrot_pinout/2018.2/mandelbrot_pinout.ip_user_files/ip/bram_video_memory_wauto_dauto_rdclk1_wrclk1
   }
 }
 file delete __synthesis_is_running__

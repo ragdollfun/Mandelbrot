@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Tue May 11 19:07:50 2021
-| Host         : PetrBigPC running 64-bit major release  (build 9200)
+| Date         : Tue Jun  1 19:46:26 2021
+| Host         : Petr-ThinkPad-Renoir running 64-bit major release  (build 9200)
 | Command      : report_utilization -file mandelbrot_pinout_utilization_synth.rpt -pb mandelbrot_pinout_utilization_synth.pb
 | Design       : mandelbrot_pinout
 | Device       : 7a200tsbg484-1
@@ -30,11 +30,11 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  187 |     0 |    134600 |  0.14 |
-|   LUT as Logic          |  187 |     0 |    134600 |  0.14 |
+| Slice LUTs*             |  223 |     0 |    134600 |  0.17 |
+|   LUT as Logic          |  223 |     0 |    134600 |  0.17 |
 |   LUT as Memory         |    0 |     0 |     46200 |  0.00 |
-| Slice Registers         |   65 |     0 |    269200 |  0.02 |
-|   Register as Flip Flop |   65 |     0 |    269200 |  0.02 |
+| Slice Registers         |  100 |     0 |    269200 |  0.04 |
+|   Register as Flip Flop |  100 |     0 |    269200 |  0.04 |
 |   Register as Latch     |    0 |     0 |    269200 |  0.00 |
 | F7 Muxes                |    0 |     0 |     67300 |  0.00 |
 | F8 Muxes                |    0 |     0 |     33650 |  0.00 |
@@ -55,9 +55,9 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 37    |          Yes |           - |        Reset |
+| 69    |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 28    |          Yes |       Reset |            - |
+| 31    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -116,7 +116,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| BUFGCTRL   |    1 |     0 |        32 |  3.13 |
+| BUFGCTRL   |    2 |     0 |        32 |  6.25 |
 | BUFIO      |    0 |     0 |        40 |  0.00 |
 | MMCME2_ADV |    0 |     0 |        10 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |        10 |  0.00 |
@@ -150,21 +150,21 @@ Table of Contents
 +-----------+------+---------------------+
 |  Ref Name | Used | Functional Category |
 +-----------+------+---------------------+
-| LUT2      |  116 |                 LUT |
-| LUT3      |  111 |                 LUT |
-| FDCE      |   37 |        Flop & Latch |
-| CARRY4    |   34 |          CarryLogic |
-| LUT6      |   29 |                 LUT |
-| FDRE      |   28 |        Flop & Latch |
-| LUT5      |   16 |                 LUT |
-| LUT4      |   14 |                 LUT |
+| LUT2      |  204 |                 LUT |
+| FDCE      |   69 |        Flop & Latch |
+| LUT6      |   57 |                 LUT |
+| CARRY4    |   42 |          CarryLogic |
+| FDRE      |   31 |        Flop & Latch |
+| LUT5      |   24 |                 LUT |
+| LUT1      |   17 |                 LUT |
+| LUT4      |   15 |                 LUT |
+| LUT3      |   12 |                 LUT |
 | OSERDESE2 |    8 |                  IO |
 | OBUFT     |    8 |                  IO |
-| LUT1      |    6 |                 LUT |
 | OBUFDS    |    4 |                  IO |
 | IBUF      |    2 |                  IO |
+| BUFG      |    2 |               Clock |
 | OBUF      |    1 |                  IO |
-| BUFG      |    1 |               Clock |
 +-----------+------+---------------------+
 
 
@@ -175,6 +175,7 @@ Table of Contents
 |                   Ref Name                  | Used |
 +---------------------------------------------+------+
 | clk_vga_hdmi_800x600                        |    1 |
+| clk_mandelbrot                              |    1 |
 | bram_video_memory_wauto_dauto_rdclk1_wrclk1 |    1 |
 +---------------------------------------------+------+
 
